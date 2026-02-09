@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { SubmitForm } from '../../services/submit-form';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,14 @@ import { Component } from '@angular/core';
 })
 
 export class HomeComponent {
+  private sendInfosService = inject(SubmitForm);
+  mostrarTitulo = true; 
+
+  @Input() myOutsideProp!: string
+  @Output() emitter = new EventEmitter<string>();
 
   click(event: any) {
-    console.log('clicouuuu: ', event);
+    this.emitter.emit("event");
+    this.sendInfosService.sendInfos("teste teste");
   }
-
 }

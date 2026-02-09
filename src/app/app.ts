@@ -8,6 +8,13 @@ import { HomeComponent } from './components/home/home';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
+
 export class App {
+  random = "batataaaa";
+
   protected readonly title = signal('my-first-app');
+
+  log(event:string){
+    console.log('Evento: ', event)
+  }
 }
